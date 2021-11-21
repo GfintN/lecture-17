@@ -1,0 +1,4 @@
+CREATE SCHEMA live
+CREATE DATABASE animals
+    WITH
+    ENCODING = 'UTF8';
