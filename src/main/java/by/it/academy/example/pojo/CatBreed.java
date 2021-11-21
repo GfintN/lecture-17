@@ -13,8 +13,6 @@ import javax.persistence.*;
 @Entity
 public class CatBreed {
     @Id
-    @GeneratedValue
-    private Long id;
     @Column(nullable = false)
     private String breed;
 }

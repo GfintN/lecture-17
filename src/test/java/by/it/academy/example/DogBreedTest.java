@@ -1,6 +1,6 @@
 package by.it.academy.example;
 
-import by.it.academy.example.dao.AnimalDAO;
+import by.it.academy.example.dao.AnimalBreedDAO;
 import by.it.academy.example.dao.DogBreedDAOImpl;
 import by.it.academy.example.pojo.DogBreed;
 import by.it.academy.example.util.HibernateUtil;
@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 import static org.mockito.Mockito.mock;
 
 public class DogBreedTest {
-    AnimalDAO dao;
+    AnimalBreedDAO dao;
     DogBreed dog;
 
     @BeforeEach
@@ -28,12 +28,12 @@ public class DogBreedTest {
 
     @Test
     void findTest() {
-        Assertions.assertDoesNotThrow(()->{dao.find(1);});
+        Assertions.assertDoesNotThrow(()->{dao.find("");});
     }
 
     @Test
     void deleteTest() {
-        Assertions.assertDoesNotThrow(()->{dao.delete(1);});
+        Assertions.assertDoesNotThrow(()->{dao.delete("");});
     }
 
     @Test

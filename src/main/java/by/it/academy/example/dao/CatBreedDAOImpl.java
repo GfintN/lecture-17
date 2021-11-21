@@ -6,7 +6,7 @@ import org.hibernate.HibernateException;
 
 import javax.persistence.EntityManager;
 
-public class CatBreedDAOImpl implements AnimalDAO<CatBreed>{
+public class CatBreedDAOImpl implements AnimalBreedDAO<CatBreed>{
     private CatBreed cat;
     private EntityManager em;
 
@@ -28,12 +28,12 @@ public class CatBreedDAOImpl implements AnimalDAO<CatBreed>{
     }
 
     @Override
-    public CatBreed find(int id) {
+    public CatBreed find(String nameBreed) {
         cat = new CatBreed();
         em = HibernateUtil.getEntityManager();
         try {
             em.getTransaction().begin();
-            cat = em.find(CatBreed.class, id);
+            cat = em.find(CatBreed.class, nameBreed);
             em.getTransaction().commit();
             return cat;
         } catch (HibernateException ignore){
@@ -46,12 +46,12 @@ public class CatBreedDAOImpl implements AnimalDAO<CatBreed>{
     }
 
     @Override
-    public CatBreed delete(int id) {
+    public CatBreed delete(String nameBreed) {
         cat = new CatBreed();
         em = HibernateUtil.getEntityManager();
         try {
             em.getTransaction().begin();
-            cat = em.find(CatBreed.class, id);
+            cat = em.find(CatBreed.class, nameBreed);
             em.remove(cat);
             em.getTransaction().commit();
             return cat;
@@ -70,7 +70,7 @@ public class CatBreedDAOImpl implements AnimalDAO<CatBreed>{
         em = HibernateUtil.getEntityManager();
         try {
             em.getTransaction().begin();
-            cat = em.find(CatBreed.class, cat.getId());
+            cat = em.find(CatBreed.class, cat.getBreed());
             em.merge(cat);
             em.getTransaction().commit();
             return cat;

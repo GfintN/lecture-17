@@ -11,10 +11,10 @@ import static org.mockito.Mockito.mock;
 
 public class FlyWayTest {
     private FlyWayMigration flyway;
-    private static FlyWayMigration flywayPostgresqlContainer;
+    private FlyWayMigration flywayPostgresqlContainer;
 
     @BeforeAll
-    static void generateContainer(){
+    void generateContainer(){
         DockerImageName myImage = DockerImageName.parse("postgres");
         PostgreSQLContainer postgreSQLContainer = new PostgreSQLContainer(myImage);
         postgreSQLContainer.addExposedPort(5432);
@@ -43,7 +43,7 @@ public class FlyWayTest {
 
     @Test
     public void testFlywayOnDAO(){
-        FlyWayTest.flywayPostgresqlContainer.initSqlAndMigrationFlyway("SELECT name FROM cats;");
+        flywayPostgresqlContainer.initSqlAndMigrationFlyway("SELECT name FROM cats;");
     }
 
 
