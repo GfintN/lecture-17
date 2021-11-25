@@ -83,7 +83,7 @@
                     <user>postgres</user>
                     <password>root</password>
                     <locations>
-                        <location>filesystem:src/main/resources/db/migration</location>
+                        <location>filesystem:db/migration</location>
                     </locations>
                 </configuration>
             </plugin>
