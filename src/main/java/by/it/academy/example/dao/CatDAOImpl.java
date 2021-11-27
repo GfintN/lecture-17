@@ -19,9 +19,9 @@ public class CatDAOImpl implements AnimalDAO<Cat> {
         em = HibernateUtil.getEntityManager();
         try {
             em.getTransaction().begin();
-            em.persist(cat);
+            em.persist(pojo);
             em.getTransaction().commit();
-            return cat;
+            return pojo;
         } catch (HibernateException ignore) {
             em.getTransaction().rollback();
             return null;
@@ -73,10 +73,10 @@ public class CatDAOImpl implements AnimalDAO<Cat> {
         em = HibernateUtil.getEntityManager();
         try {
             em.getTransaction().begin();
-            cat = em.find(Cat.class, cat.getId());
+            pojo = em.find(Cat.class, pojo.getId());
             em.merge(cat);
             em.getTransaction().commit();
-            return cat;
+            return pojo;
         } catch (HibernateException ignore){
             em.getTransaction().rollback();
             return null;
