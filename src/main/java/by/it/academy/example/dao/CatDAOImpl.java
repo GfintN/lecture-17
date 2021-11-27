@@ -15,7 +15,7 @@ public class CatDAOImpl implements AnimalDAO<Cat> {
 
     @Override
     public Cat sava(Cat pojo) {
-        cat = new Cat();
+        
         em = HibernateUtil.getEntityManager();
         try {
             em.getTransaction().begin();
@@ -69,7 +69,7 @@ public class CatDAOImpl implements AnimalDAO<Cat> {
 
     @Override
     public Cat update(Cat pojo) {
-        cat = new Cat();
+        
         em = HibernateUtil.getEntityManager();
         try {
             em.getTransaction().begin();
