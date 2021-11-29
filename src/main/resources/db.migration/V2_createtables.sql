@@ -1,0 +1,23 @@
+CREATE TABLE cats (
+  id BIGINT PRIMARY KEY,
+  name VARCHAR(30) NOT NULL,
+  age SMALLINT NOT NULL,
+  breed VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE dogs (
+  id BIGINT PRIMARY KEY,
+  name VARCHAR(30) NOT NULL,
+  age SMALLINT NOT NULL,
+  breed VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE cats_breeds {
+  breed VARCHAR(50) NOT NULL  PRIMARY KEY,
+  FOREIGN KEY(breed) REFERENCES cats(breed)
+}
+
+CREATE TABLE dogs_breeds {
+  breed VARCHAR(50) NOT NULL,
+  FOREIGN KEY(breed) REFERENCES dogs(breed)
+}

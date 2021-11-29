@@ -9,4 +9,7 @@
 <p>8. Create CRUD DAO (use EntityManager) for POJOs</p>
 <p>9. Tests</p>
 
-<h6>FlyWayTest and HibernateUtilTest don't work</h6>
+* mvn package
+* docker-compose up -d
+* mvn flyway:migrate
+
